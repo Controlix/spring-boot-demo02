@@ -6,3 +6,5 @@ It includes:
 - spring-boot
 - feign
 - sleuth correlaton ids
+- spring security
+
