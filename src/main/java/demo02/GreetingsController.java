@@ -25,6 +25,9 @@ public class GreetingsController {
 	
 	@Autowired
 	private Registry registry;
+	
+	@Autowired
+	private TimeoutParams timeoutParams;
 
 	private DistributionSummary distributionSummary;
 
@@ -45,7 +48,7 @@ public class GreetingsController {
     }
 
 	private String chooseQuote() throws InterruptedException {
-    	TimeUnit.MILLISECONDS.sleep(RandomUtils.nextLong(50L, 500L));
+    	TimeUnit.MILLISECONDS.sleep(RandomUtils.nextLong(timeoutParams.getMinimum(), timeoutParams.getMaximum()));
 		return quotes.chooseOne();
 	}
 
